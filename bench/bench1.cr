@@ -13,9 +13,7 @@ Benchmark.ips(warmup: 4, calculation: 10) do |x|
 
     (1..1000).each do |i|
       n = i % 100
-      if cache.has?(n)
-        _ = cache[n]
-      end
+      _ = cache[n]?
     end
   end
 
@@ -30,9 +28,7 @@ Benchmark.ips(warmup: 4, calculation: 10) do |x|
 
     (1..1000).each do
       n = r.rand(100)
-      if cache.has?(n)
-        _ = cache[n]
-      end
+      _ = cache[n]?
     end
   end
 
@@ -49,9 +45,7 @@ Benchmark.ips(warmup: 4, calculation: 10) do |x|
 
     (1..1000).each do
       n = r.rand(100)
-      if cache.has?(n)
-        _ = cache[n]
-      end
+      _ = cache[n]?
     end
   end
 end

@@ -203,7 +203,8 @@ class SieveCache::Cache(K, V)
   # ```
   #
   def initialize(@cap)
-    @store = Hash(K, Node(K, V)).new
+    raise ArgumentError.new("Requires cap > 0") unless cap > 0
+    @store = Hash(K, Node(K, V)).new(initial_capacity: cap)
   end
 
   # to string
