@@ -1,6 +1,6 @@
 # sieve_cache
 
-[SIEVE Cache]((https://cachemon.github.io/SIEVE-website) for Crystal lang
+[SIEVE Cache](https://cachemon.github.io/SIEVE-website) for Crystal lang
 
 [API DOC](https://lost22git.github.io/sieve_cache.cr)
 
