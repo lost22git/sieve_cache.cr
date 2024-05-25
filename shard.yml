@@ -1,0 +1,13 @@
+name: sieve_cache
+version: 0.1.0
+
+authors:
+  - lost <lost>
+
+crystal: '>= 1.11.2'
+
+license: MIT
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
