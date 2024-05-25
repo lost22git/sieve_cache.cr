@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.12.1">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="sieve_cache">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="sieve_cache">
+  <title>SieveCache::CacheBase(K, V) - sieve_cache main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          sieve_cache
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="sieve_cache/SieveCache" data-name="sievecache">
+      <a href="../SieveCache.html">SieveCache</a>
+      
+        <ul>
+  
+  <li class=" " data-id="sieve_cache/SieveCache/Cache" data-name="sievecache::cache(k, v)">
+      <a href="../SieveCache/Cache.html">Cache</a>
+      
+    </li>
+  
+  <li class=" current" data-id="sieve_cache/SieveCache/CacheBase" data-name="sievecache::cachebase(k, v)">
+      <a href="../SieveCache/CacheBase.html">CacheBase</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> SieveCache::<wbr>CacheBase(K, V)
+
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../SieveCache/Cache.html">SieveCache::Cache(K, V)</a></li>
+    
+  </ul>
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L24" target="_blank">
+        sieve_cache.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%28key%3AK%29-instance-method" class="signature"><strong>#[]</strong>(key : K)</a>
+        
+          <div class="summary"><p>Get value by key, raise KeyError if key is not found</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%3D%28key%3AK%2Cvalue%3AV%29-instance-method" class="signature"><strong>#[]=</strong>(key : K, value : V)</a>
+        
+          <div class="summary"><p>Set key-value into cache</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%3F%28key%3AK%29%3AV%7CNil-instance-method" class="signature"><strong>#[]?</strong>(key : K) : V | Nil</a>
+        
+          <div class="summary"><p>Get value by key, return nil if key is not found</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cap%3AUInt32-instance-method" class="signature"><strong>#cap</strong> : UInt32</a>
+        
+          <div class="summary"><p>Get the capacity of the cache</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear-instance-method" class="signature"><strong>#clear</strong></a>
+        
+          <div class="summary"><p>Clear cache</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#del%28key%3AK%2C%26%3AK-%3E%29-instance-method" class="signature"><strong>#del</strong>(key : K, & : K -> )</a>
+        
+          <div class="summary"><p>Delete value by key, call the block if key is not found</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#del%28key%3AK%29%3AV%7CNil-instance-method" class="signature"><strong>#del</strong>(key : K) : V | Nil</a>
+        
+          <div class="summary"><p>Delete value by key, return deleted value or nil (if key is not found)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#empty%3F%3ABool-instance-method" class="signature"><strong>#empty?</strong> : Bool</a>
+        
+          <div class="summary"><p>Check cache is empty?</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#full%3F%3ABool-instance-method" class="signature"><strong>#full?</strong> : Bool</a>
+        
+          <div class="summary"><p>Check cache is full?</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get%28key%3AK%2C%26%3AK-%3E%29-instance-method" class="signature"><strong>#get</strong>(key : K, & : K -> )</a>
+        
+          <div class="summary"><p>Get value by key, call the block if key is not found</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get%28key%3AK%2Cfallback%3AV%29%3AV-instance-method" class="signature"><strong>#get</strong>(key : K, fallback : V) : V</a>
+        
+          <div class="summary"><p>Get value by key, return fallback value if key is no found</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_or_set%28key%3AK%2C%26%3AK-%3EV%29%3AV-instance-method" class="signature"><strong>#get_or_set</strong>(key : K, & : K -> V) : V</a>
+        
+          <div class="summary"><p>Get value by key, call the block to get value to set into cache if key is not found</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_or_set%28key%3AK%2Cvalue%3AV%29%3AV-instance-method" class="signature"><strong>#get_or_set</strong>(key : K, value : V) : V</a>
+        
+          <div class="summary"><p>Get value by key, set key-value into cache if key is not found</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has%3F%28key%3AK%29%3ABool-instance-method" class="signature"><strong>#has?</strong>(key : K) : Bool</a>
+        
+          <div class="summary"><p>Check cache if has key?</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#len%3AUInt32-instance-method" class="signature"><strong>#len</strong> : UInt32</a>
+        
+          <div class="summary"><p>Get the length of the cache</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set%28key%3AK%2Cvalue%3AV%29-instance-method" class="signature"><strong>#set</strong>(key : K, value : V)</a>
+        
+          <div class="summary"><p>Set key-value to cache</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="[](key:K)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]</strong>(key : K)
+
+        <a class="method-permalink" href="#%5B%5D%28key%3AK%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get value by key, raise KeyError if key is not found</p>
+<pre><code class="language-crystal">value <span class="o">=</span> cache[<span class="s">&quot;foo&quot;</span>]</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L182" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]=(key:K,value:V)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]=</strong>(key : K, value : V)
+
+        <a class="method-permalink" href="#%5B%5D%3D%28key%3AK%2Cvalue%3AV%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set key-value into cache</p>
+<pre><code class="language-crystal">cache[<span class="s">&quot;foo&quot;</span>] <span class="o">=</span> <span class="s">&quot;bar&quot;</span>
+cache[<span class="s">&quot;foo&quot;</span>] <span class="o">=</span> <span class="s">&quot;baz&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L162" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]?(key:K):V|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>[]?</strong>(key : K) : V | Nil
+
+        <a class="method-permalink" href="#%5B%5D%3F%28key%3AK%29%3AV%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get value by key, return nil if key is not found</p>
+<pre><code class="language-crystal">value <span class="o">=</span> cache[<span class="s">&quot;foo&quot;</span>]?</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L172" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cap:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>cap</strong> : UInt32
+
+        <a class="method-permalink" href="#cap%3AUInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get the capacity of the cache</p>
+<pre><code class="language-crystal">p! cache.cap</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L65" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>clear</strong>
+
+        <a class="method-permalink" href="#clear-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Clear cache</p>
+<pre><code class="language-crystal">cache.clear
+p! cache.len <span class="c"># =&gt; 0</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L76" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="del(key:K,&amp;:K-&gt;)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>del</strong>(key : K, & : K -> )
+
+        <a class="method-permalink" href="#del%28key%3AK%2C%26%3AK-%3E%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Delete value by key, call the block if key is not found</p>
+<pre><code class="language-crystal">deleted_value <span class="o">=</span> cache.del(<span class="s">&quot;foo&quot;</span>) { <span class="n">nil</span> }</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L121" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="del(key:K):V|Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>del</strong>(key : K) : V | Nil
+
+        <a class="method-permalink" href="#del%28key%3AK%29%3AV%7CNil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Delete value by key, return deleted value or nil (if key is not found)</p>
+<pre><code class="language-crystal">deleted_value_or_nil <span class="o">=</span> cache.del(<span class="s">&quot;foo&quot;</span>)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L151" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="empty?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>empty?</strong> : Bool
+
+        <a class="method-permalink" href="#empty%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check cache is empty?</p>
+<pre><code class="language-crystal"><span class="k">if</span> cache.empty?
+  ...
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L45" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="full?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>full?</strong> : Bool
+
+        <a class="method-permalink" href="#full%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check cache is full?</p>
+<pre><code class="language-crystal"><span class="k">if</span> cache.full?
+  ...
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get(key:K,&amp;:K-&gt;)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>get</strong>(key : K, & : K -> )
+
+        <a class="method-permalink" href="#get%28key%3AK%2C%26%3AK-%3E%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get value by key, call the block if key is not found</p>
+<pre><code class="language-crystal">value <span class="o">=</span> cache.get(<span class="s">&quot;foo&quot;</span>) { <span class="o">|</span>k<span class="o">|</span> raise <span class="s">&quot;Key: </span><span class="i">#{</span>k<span class="i">}</span><span class="s"> not found&quot;</span> }</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L103" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get(key:K,fallback:V):V-instance-method">
+      <div class="signature">
+        
+        def <strong>get</strong>(key : K, fallback : V) : V
+
+        <a class="method-permalink" href="#get%28key%3AK%2Cfallback%3AV%29%3AV-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get value by key, return fallback value if key is no found</p>
+<pre><code class="language-crystal">value <span class="o">=</span> cache.get(<span class="s">&quot;foo&quot;</span>, <span class="s">&quot;bar&quot;</span>)
+p! value <span class="c"># =&gt; &quot;bar&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L130" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_or_set(key:K,&amp;:K-&gt;V):V-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>get_or_set</strong>(key : K, & : K -> V) : V
+
+        <a class="method-permalink" href="#get_or_set%28key%3AK%2C%26%3AK-%3EV%29%3AV-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get value by key, call the block to get value to set into cache if key is not found</p>
+<pre><code class="language-crystal">value <span class="o">=</span> cache.get_or_set(<span class="s">&quot;foo&quot;</span>) { <span class="o">|</span>k<span class="o">|</span> <span class="s">&quot;new value of key: </span><span class="i">#{</span>k<span class="i">}</span><span class="s">&quot;</span> }
+p! value        <span class="c"># =&gt; &quot;new value of key: foo&quot;</span>
+p! cache[<span class="s">&quot;foo&quot;</span>] <span class="c"># =&gt; &quot;new value of key: foo&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L113" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_or_set(key:K,value:V):V-instance-method">
+      <div class="signature">
+        
+        def <strong>get_or_set</strong>(key : K, value : V) : V
+
+        <a class="method-permalink" href="#get_or_set%28key%3AK%2Cvalue%3AV%29%3AV-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get value by key, set key-value into cache if key is not found</p>
+<pre><code class="language-crystal">value <span class="o">=</span> cache.get_or_set(<span class="s">&quot;foo&quot;</span>, <span class="s">&quot;bar&quot;</span>)
+p! value <span class="c"># =&gt; &quot;bar&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L141" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has?(key:K):Bool-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>has?</strong>(key : K) : Bool
+
+        <a class="method-permalink" href="#has%3F%28key%3AK%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check cache if has key?</p>
+<pre><code class="language-crystal"><span class="k">if</span> cache.has?(<span class="s">&quot;hello&quot;</span>)
+  ...
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L86" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="len:UInt32-instance-method">
+      <div class="signature">
+        
+        def <strong>len</strong> : UInt32
+
+        <a class="method-permalink" href="#len%3AUInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get the length of the cache</p>
+<pre><code class="language-crystal">p! cache.len</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L55" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set(key:K,value:V)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>set</strong>(key : K, value : V)
+
+        <a class="method-permalink" href="#set%28key%3AK%2Cvalue%3AV%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set key-value to cache</p>
+<pre><code class="language-crystal">cache.set(<span class="s">&quot;foo&quot;</span>, <span class="s">&quot;bar&quot;</span>)
+cache.set(<span class="s">&quot;foo&quot;</span>, <span class="s">&quot;baz&quot;</span>)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/lost22git/sieve_cache.cr/blob/c22cc2fb1956145a65545d615237059e9b7a1c4a/src/sieve_cache.cr#L95" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>
