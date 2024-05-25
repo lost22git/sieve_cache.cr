@@ -280,7 +280,7 @@ class SieveCache::Cache(K, V)
     else
       h.prev = node
       node.prev = nil
-      node.next = @head
+      node.next = h
       @head = node
     end
     @len += 1
